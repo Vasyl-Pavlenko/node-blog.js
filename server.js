@@ -16,8 +16,6 @@ import('chalk').then((chalk) => {
   console.error('Error occurred while importing chalk:', error);
 });
 
-
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -27,7 +25,7 @@ mongoose
   .then((res) => console.log(successMsg('Connected to MongoDB')))
   .catch((error) => console.log(errorMsg(error)));
 
-app.listen(process.env.PORT, (error) => {
+app.listen(process.env.PORT || 3000, (error) => {
   error ? console.log(errorMsg(error)) : console.log(successMsg(`listening port ${process.env.PORT}`));
 });
 
