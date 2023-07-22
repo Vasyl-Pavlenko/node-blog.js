@@ -1,5 +1,4 @@
 const express = require('express');
-// const chalk = require('chalk');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -9,24 +8,20 @@ const postApiRoutes = require('./routes/api-post-routes');
 const contactRoutes = require('./routes/contact-routes');
 const createPath = require('./helpers/create-path');
 
-import('chalk').then((chalk) => {
-  const errorMsg = chalk.bgKeyword('white').redBright;
-  const successMsg = chalk.bgKeyword('green').white;
-}).catch((error) => {
-  console.error('Error occurred while importing chalk:', error);
-});
-
 const app = express();
 
 app.set('view engine', 'ejs');
 
+// const PORT = 3000;
+// const db = 'mongodb+srv://Enzo:Combo425@cluster0.1kyupz5.mongodb.net/node-blog?retryWrites=true&w=majority';
+
 mongoose
   .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((res) => console.log(successMsg('Connected to MongoDB')))
-  .catch((error) => console.log(errorMsg(error)));
+  .then((res) => console.log('Connected to MongoDB'))
+  .catch((error) => console.log(error));
 
-app.listen(process.env.PORT || 3000, (error) => {
-  error ? console.log(errorMsg(error)) : console.log(successMsg(`listening port ${process.env.PORT}`));
+app.listen(process.env.PORT, (error) => {
+  error ? console.log(error) : console.log(`listening port ${process.env.PORT}`);
 });
 
 app.use(express.urlencoded({ extended: false }));
