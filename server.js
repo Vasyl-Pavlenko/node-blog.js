@@ -1,5 +1,9 @@
 const express = require('express');
-const chalk = require('chalk');
+import('chalk').then((chalk) => {
+  console.log(chalk.green('Server started successfully!'));
+}).catch((error) => {
+  console.error('Error occurred while importing chalk:', error);
+});
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
