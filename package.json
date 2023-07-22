@@ -4,25 +4,32 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vasyl-Pavlenko/node-blog.js"
+  },
+  "author": "Vasyl Pavlenko",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vasyl-Pavlenko/node-blog.js/issues"
+  },
+  "homepage": "https://github.com/Vasyl-Pavlenko/node-blog.js#readme",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
-    "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "heroku": "^8.1.9",
+    "chalk": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "mongodb": "^5.7.0",
-    "mongoose": "^7.4.0",
+    "mongoose": "^5.12.7",
     "morgan": "^1.10.0"
   },
   "engines": {
-    "node": "18.16.1"
+    "node": "14.17.0"
   }
 }
