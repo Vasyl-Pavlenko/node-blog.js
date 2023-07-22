@@ -4,7 +4,7 @@ const createPath = require('../helpers/create-path');
 const handleError = (res, error) => {
   console.log(error);
   res.render(createPath('error'), { title: 'Error' });
-};
+}
 
 const getPost = (req, res) => {
   const title = 'Post';
@@ -35,7 +35,7 @@ const editPost = (req, res) => {
   const { title, author, text } = req.body;
   const { id } = req.params;
   Post
-    .findByIdAndUpdate(req.params.id, { title, author, text })
+    .findByIdAndUpdate(id, { title, author, text })
     .then((result) => res.redirect(`/posts/${id}`))
     .catch((error) => handleError(res, error));
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const chalk = require('chalk');
+// const chalk = require('chalk');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -9,8 +9,14 @@ const postApiRoutes = require('./routes/api-post-routes');
 const contactRoutes = require('./routes/contact-routes');
 const createPath = require('./helpers/create-path');
 
-const errorMsg = chalk.bgKeyword('white').redBright;
-const successMsg = chalk.bgKeyword('green').white;
+import('chalk').then((chalk) => {
+  const errorMsg = chalk.bgKeyword('white').redBright;
+  const successMsg = chalk.bgKeyword('green').white;
+}).catch((error) => {
+  console.error('Error occurred while importing chalk:', error);
+});
+
+
 
 const app = express();
 
@@ -18,7 +24,7 @@ app.set('view engine', 'ejs');
 
 mongoose
   .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((res) => console.log(successMsg('Connected to DB')))
+  .then((res) => console.log(successMsg('Connected to MongoDB')))
   .catch((error) => console.log(errorMsg(error)));
 
 app.listen(process.env.PORT, (error) => {
