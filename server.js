@@ -12,9 +12,6 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-// const PORT = 3000;
-// const db = 'mongodb+srv://Enzo:Combo425@cluster0.1kyupz5.mongodb.net/node-blog?retryWrites=true&w=majority';
-
 mongoose
   .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((res) => console.log('Connected to MongoDB'))
